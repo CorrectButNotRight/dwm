@@ -1,0 +1,27 @@
+Using
+- cool autostart / autostart (alternative: xinitrc + startx)
+- fixborders (alpha) (if using compositor)
+- switch col
+- pertag
+- resetlayout (note: insert logic before `remove border` @ dwm.c:resizeclient)
+- no border (no floating)
+
+Useful
+- deck layout (two pane)
+- bottom stack layout
+- attachdirection
+- push
+- focus adjacent tag
+- ewmh tags
+- cycle layouts (can use logic for `toggle layout`)
+- dwmc
+
+Nice
+- ru gaps
+- three column
+- smart borders
+- systray
+
+Tried
+- restartsig
+- remove border
