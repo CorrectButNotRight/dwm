@@ -7,11 +7,6 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "DejaVu Sans Mono:size=9:style=Bold" };
 static const char dmenufont[]       = "DejaVu Sans Mono:size=9:style=Bold";
-/* static const char col_gray1[]       = "#222222"; */
-/* static const char col_gray2[]       = "#444444"; */
-/* static const char col_gray3[]       = "#bbbbbb"; */
-/* static const char col_gray4[]       = "#eeeeee"; */
-/* static const char col_cyan[]        = "#005577"; */
 static const char col_gray1[]       = "#0f0f0f";
 static const char col_gray2[]       = "#2b2b2b";
 static const char col_gray3[]       = "#a2a2a2";
@@ -19,8 +14,6 @@ static const char col_gray4[]       = "#e5e5e5";
 static const char col_yellow[]      = "#ffd866";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	/* [SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, */
-	/* [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  }, */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_gray2, col_yellow  },
 };
@@ -54,6 +47,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[D]",      deck },
 };
 
 /* key definitions */
@@ -86,14 +80,15 @@ static Key keys[] = {
 	{ Mod4Mask|Mod1Mask,            XK_h,      setmfact,       {.f = -0.05} },
 	{ Mod4Mask|Mod1Mask,            XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
-	{ MODKEY,                       XK_e,      resetlayout,    {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_m,      setlayout,      {0} },
-	{ MODKEY,                       XK_o,      setlayout,      {0} },
+	/* { MODKEY,                       XK_o,      setlayout,      {0} }, */
+	{ MODKEY,                       XK_o,      cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_f,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
