@@ -5,7 +5,6 @@ Using
 - pertag
 - no border (no floating)
 - deck layout (two pane)
-- cycle layouts
 
 Useful
 - use logic from cycle layouts for `toggle layout`
@@ -26,3 +25,4 @@ Nice
 Tried
 - restartsig
 - remove border
+- cycle layouts
