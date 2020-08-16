@@ -3,7 +3,6 @@ Using
 - fixborders (alpha) (if using compositor)
 - switch col
 - pertag
-- ewmh tags
 - no border (no floating)
 - deck layout (two pane)
 
@@ -26,3 +25,4 @@ Tried
 - restartsig
 - remove border
 - cycle layouts
+- ewmh tags
