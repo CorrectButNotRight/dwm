@@ -1,15 +1,16 @@
 Using
 - cool autostart / autostart (alternative: xinitrc + startx)
+- pertag
 - fixborders (alpha) (if using compositor)
 - switch col
-- pertag
 - no border (no floating)
 - deck layout (two pane)
+- bottom stack layout
+- systray
 
 Useful
 - use logic from cycle layouts for `toggle layout`
 - resetlayout (note: insert logic before `remove border` @ dwm.c:resizeclient)
-- bottom stack layout
 - attachdirection
 - push
 - focus adjacent tag
@@ -19,7 +20,6 @@ Nice
 - ru gaps
 - three column
 - smart borders
-- systray
 
 Tried
 - restartsig

@@ -3,6 +3,10 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "DejaVu Sans Mono:size=9:style=Bold" };
@@ -12,6 +16,7 @@ static const char col_gray2[]       = "#2b2b2b";
 static const char col_gray3[]       = "#a2a2a2";
 static const char col_gray4[]       = "#e5e5e5";
 static const char col_yellow[]      = "#ffd866";
+static const char col_cyan[]        = "#021E57";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -50,6 +55,8 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[D]",      deck },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -99,6 +106,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
+	/* { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} }, */
 	{ MODKEY,                       XK_o,      setlayout,      {0} },
 	{ MODKEY,                       XK_t,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
