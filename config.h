@@ -12,7 +12,7 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "DejaVu Sans Mono:size=9:style=Bold" };
 static const char dmenufont[]       = "DejaVu Sans Mono:size=9:style=Bold";
 static const char col_gray1[]       = "#0f0f0f";
-static const char col_gray2[]       = "#2b2b2b";
+static const char col_gray2[]       = "#1d1f21";
 static const char col_gray3[]       = "#a2a2a2";
 static const char col_gray4[]       = "#e5e5e5";
 static const char col_yellow[]      = "#ffd866";
@@ -73,12 +73,14 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "/home/andrew/bin/dmenu_run_history.sh", "dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, topbar ? NULL : "-b", NULL };
-static const char *termcmd[]  = { "st", NULL };
+/* static const char *termcmd[]  = { "st", NULL }; */
+static const char *termcmd[]  = { "urxvtc", NULL };
+/* static const char *termcmd[] = { "sh", "-c", "urxvtc || urxvt"}; */
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	/* { MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, */
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_equal,  incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_minus,  incnmaster,     {.i = -1 } },
