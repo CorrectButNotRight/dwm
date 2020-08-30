@@ -1,0 +1,38 @@
+diff --git a/Makefile b/Makefile
+index 77bcbc0..9927211 100644
+--- a/Makefile
++++ b/Makefile
+@@ -43,9 +43,11 @@ install: all
+ 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
+ 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
+ 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
++	cp -f dwm.desktop ${SESSDIR}
+ 
+ uninstall:
+ 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+ 		${DESTDIR}${MANPREFIX}/man1/dwm.1
++	rm -f ${SESSDIR}/dwm.desktop
+ 
+ .PHONY: all options clean dist install uninstall
+diff --git a/config.mk b/config.mk
+index 7084c33..7fa32bd 100644
+--- a/config.mk
++++ b/config.mk
+@@ -6,6 +6,7 @@ VERSION = 6.2
+ # paths
+ PREFIX = /usr/local
+ MANPREFIX = ${PREFIX}/share/man
++SESSDIR = /usr/share/xsessions
+ 
+ X11INC = /usr/X11R6/include
+ X11LIB = /usr/X11R6/lib
+diff --git a/dwm.desktop b/dwm.desktop
+new file mode 100644
+index 0000000..2a9cdf1
+--- /dev/null
++++ b/dwm.desktop
+@@ -0,0 +1,4 @@
++[Desktop Entry]
++Type=Application
++Name=dwm
++Exec=/usr/local/bin/dwm
