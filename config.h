@@ -15,11 +15,12 @@ static const char col_gray1[]       = "#0f0f0f";
 static const char col_gray2[]       = "#1d1f21";
 static const char col_gray3[]       = "#a2a2a2";
 static const char col_gray4[]       = "#e5e5e5";
+static const char col_gray5[]       = "#31363b";
 static const char col_yellow[]      = "#ffd866";
 static const char col_cyan[]        = "#021E57";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray5 },
 	[SchemeSel]  = { col_gray4, col_gray2, col_yellow  },
 };
 
@@ -42,6 +43,7 @@ static const Rule rules[] = {
 	/* { "mpv",      NULL,       NULL,       0,            1,           -1 }, */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Guvcview", NULL,       NULL,       0,            1,           -1 },
+	{ "guvcview", NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
