@@ -25,4 +25,4 @@ Tried
 - restartsig
 - remove border
 - cycle layouts
-- ewmh tags
+- ewmh tags (useful for certain programs, but cannot interact using wmctrl)

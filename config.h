@@ -39,8 +39,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
+	 * WM_CLASS(STRING) = instance, class
+	 * WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	/* { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
@@ -78,7 +78,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "/home/andrew/bin/dmenu_run_history.sh", "dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, topbar ? NULL : "-b", NULL };
+/* static const char *dmenucmd[] = { "/home/andrew/bin/dmenu_run_history.sh", "dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, topbar ? NULL : "-b", NULL }; */
+static const char *dmenucmd[] = { "/home/andrew/bin/dmenu_run_history.sh", "dmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
 /* static const char *termcmd[]  = { "st", NULL }; */
 static const char *termcmd[]  = { "urxvtc", NULL };
 /* static const char *termcmd[] = { "sh", "-c", "urxvtc || urxvt"}; */
@@ -120,10 +121,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_m,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_m,      tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
